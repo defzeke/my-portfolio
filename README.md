@@ -42,55 +42,6 @@
 - **Version Control:** Git & GitHub
 - **Package Manager:** npm
 
-## 🚀 Getting Started
-
-### Prerequisites
-- Node.js 18+ 
-- npm, yarn, pnpm, or bun
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/defzeke/my-portfolio.git
-   cd my-portfolio
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   # or
-   yarn install
-   # or
-   pnpm install
-   ```
-
-3. **Run the development server**
-   ```bash
-   npm run dev
-   # or
-   yarn dev
-   # or
-   pnpm dev
-   ```
-
-4. **Open your browser**
-   
-   Navigate to [http://localhost:3000](http://localhost:3000) to see the result.
-
-### Build for Production
-
-```bash
-npm run build
-npm start
-```
-
-### Linting
-
-```bash
-npm run lint
-```
-
 ## 📁 Project Structure
 
 ```
@@ -147,26 +98,6 @@ A traditional portfolio website view with:
 ### Dynamic Content
 Projects and certifications are loaded from CSV files, making it easy to update content without touching code.
 
-## 🌐 Deployment
-
-### Deploy on Vercel (Recommended)
-
-The easiest way to deploy this Next.js app is using [Vercel](https://vercel.com):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/defzeke/my-portfolio)
-
-1. Push your code to GitHub
-2. Import your repository on Vercel
-3. Vercel will automatically detect Next.js and configure the build
-4. Your site will be live in minutes!
-
-### Other Platforms
-This project can also be deployed to:
-- Netlify
-- AWS Amplify
-- Azure Static Web Apps
-- Any platform supporting Next.js
-
 ## 📝 License
 
 This project is open source and available under the [MIT License](LICENSE).
@@ -176,15 +107,6 @@ This project is open source and available under the [MIT License](LICENSE).
 **Ezekiel Bustamante**
 
 - GitHub: [@defzeke](https://github.com/defzeke)
-- Portfolio: [Your Portfolio URL]
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/defzeke/my-portfolio/issues).
-
-## ⭐ Show Your Support
-
-Give a ⭐️ if you like this project!
 
 ---
 
