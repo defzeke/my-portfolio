@@ -28,6 +28,7 @@ export default function LoadingScreen({ onLoadingComplete }: LoadingScreenProps)
       <video 
         autoPlay 
         playsInline
+        muted
         className="max-w-[70%] max-h-[70%] md:max-w-[40%] md:max-h-[40%] object-contain"
         onEnded={handleVideoEnd}
         onError={handleVideoEnd}
