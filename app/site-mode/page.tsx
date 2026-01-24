@@ -134,7 +134,7 @@ export default function SiteMode() {
       {/* Back Button */}
       <div className="px-4 sm:px-6 pt-4">
         <Link 
-          href="/portfolio"
+          href="/"
           className={`inline-flex items-center gap-1.5 text-xs sm:text-sm font-medium transition-colors ${isDarkMode ? 'text-gray-400 hover:text-gray-200' : 'text-gray-600 hover:text-gray-900'}`}
         >
           <HiArrowLeft className="w-3 h-3 sm:w-4 sm:h-4" /> Back

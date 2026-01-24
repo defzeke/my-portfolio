@@ -6,7 +6,7 @@ import ChannelSidebar from '@/components/sections/ChannelSidebar';
 import MainContent from '@/components/sections/MainContent';
 import MembersSidebar from '@/components/sections/MembersSidebar';
 
-export default function PortfolioPage() {
+export default function PortfolioLayout() {
   const [fadeIn, setFadeIn] = useState(false);
   const [activeServer, setActiveServer] = useState(0);
   const [activeChannel, setActiveChannel] = useState('about-me');
@@ -93,54 +93,52 @@ export default function PortfolioPage() {
   }, [handleSwipe]);
 
   return (
-    <>
-      <main className="flex h-screen min-h-screen bg-[#36393f] overflow-hidden">
-        {/* Black overlay that fades out */}
-        <div className={`fixed inset-0 bg-black pointer-events-none transition-opacity duration-1000 ${fadeIn ? 'opacity-0' : 'opacity-100'}`} style={{ zIndex: 10000 }} />
+    <main className="flex h-screen min-h-screen bg-[#36393f] overflow-hidden">
+      {/* Black overlay that fades out */}
+      <div className={`fixed inset-0 bg-black pointer-events-none transition-opacity duration-1000 ${fadeIn ? 'opacity-0' : 'opacity-100'}`} style={{ zIndex: 10000 }} />
 
-        {/* Mobile overlay when sidebars are shown */}
-        {(showMobileSidebars || showMobileMembersSidebar) && (
-          <div 
-            className="fixed inset-0 bg-black/50 z-30 md:hidden"
-            onClick={() => {
-              setShowMobileSidebars(false);
-              setShowMobileMembersSidebar(false);
-            }}
-          />
-        )}
+      {/* Mobile overlay when sidebars are shown */}
+      {(showMobileSidebars || showMobileMembersSidebar) && (
+        <div 
+          className="fixed inset-0 bg-black/50 z-30 md:hidden"
+          onClick={() => {
+            setShowMobileSidebars(false);
+            setShowMobileMembersSidebar(false);
+          }}
+        />
+      )}
 
-        {/* Server List - hidden on mobile by default, shown with swipe */}
-        <div className={`
-          fixed left-0 top-0 h-screen md:relative md:h-full z-40 md:z-auto
-          transition-transform duration-300 ease-in-out
-          ${showMobileSidebars ? 'translate-x-0' : '-translate-x-[72px]'}
-          md:translate-x-0
-        `}>
-          <ServerList active={activeServer} setActive={setActiveServer} />
-        </div>
+      {/* Server List - hidden on mobile by default, shown with swipe */}
+      <div className={`
+        fixed left-0 top-0 h-screen md:relative md:h-full z-40 md:z-auto
+        transition-transform duration-300 ease-in-out
+        ${showMobileSidebars ? 'translate-x-0' : '-translate-x-[72px]'}
+        md:translate-x-0
+      `}>
+        <ServerList active={activeServer} setActive={setActiveServer} />
+      </div>
 
-        {/* Channel Sidebar - hidden on mobile by default, shown with swipe */}
-        <div className={`
-          fixed left-[72px] top-0 h-screen md:relative md:left-0 md:h-full z-40 md:z-auto
-          transition-transform duration-300 ease-in-out
-          ${showMobileSidebars ? 'translate-x-0' : '-translate-x-[332px]'}
-          md:translate-x-0
-        `}>
-          <ChannelSidebar activeServer={activeServer} activeChannel={activeChannel} setActiveChannel={setActiveChannel} />
-        </div>
+      {/* Channel Sidebar - hidden on mobile by default, shown with swipe */}
+      <div className={`
+        fixed left-[72px] top-0 h-screen md:relative md:left-0 md:h-full z-40 md:z-auto
+        transition-transform duration-300 ease-in-out
+        ${showMobileSidebars ? 'translate-x-0' : '-translate-x-[332px]'}
+        md:translate-x-0
+      `}>
+        <ChannelSidebar activeServer={activeServer} activeChannel={activeChannel} setActiveChannel={setActiveChannel} />
+      </div>
 
-        <MainContent activeChannel={activeChannel} />
-        
-        {/* Members Sidebar - hidden on mobile by default, shown with swipe left */}
-        <div className={`
-          fixed right-0 top-0 h-screen md:relative md:h-full z-40 md:z-auto
-          transition-transform duration-300 ease-in-out
-          ${showMobileMembersSidebar ? 'translate-x-0' : 'translate-x-[240px]'}
-          md:translate-x-0
-        `}>
-          <MembersSidebar activeServer={activeServer} />
-        </div>
-      </main>
-    </>
+      <MainContent activeChannel={activeChannel} />
+      
+      {/* Members Sidebar - hidden on mobile by default, shown with swipe left */}
+      <div className={`
+        fixed right-0 top-0 h-screen md:relative md:h-full z-40 md:z-auto
+        transition-transform duration-300 ease-in-out
+        ${showMobileMembersSidebar ? 'translate-x-0' : 'translate-x-[240px]'}
+        md:translate-x-0
+      `}>
+        <MembersSidebar activeServer={activeServer} />
+      </div>
+    </main>
   );
 }
