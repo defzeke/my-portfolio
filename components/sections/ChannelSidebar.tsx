@@ -15,7 +15,7 @@ export default function ChannelSidebar({ activeServer, activeChannel, setActiveC
   // Different channels for different servers
   const channelsByServer = [
     ['about-me'], // Server 0 (Me)
-    ['us', 'since', 'referral'], // Server 1 (<3)
+    ['us', /* 'since', */ 'referral'], // Server 1 (<3)
     ['cicada', 'about-jhered', 'about-carl-e', 'about-carl-b'] // Server 2 (Team Cicada)
   ];
 
