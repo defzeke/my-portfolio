@@ -145,7 +145,12 @@ export default function AboutMeContent() {
             </div>
           </div>
           <p className="text-[#dcddde] text-xs sm:text-sm leading-relaxed">
-            An portfolio showcasing my personality, projects, and journey through an engaging and clean interface.
+            An portfolio showcasing my personality, projects, and journey through an engaging and clean interface. Layout inspired by <span 
+              onClick={(e) => { e.preventDefault(); e.stopPropagation(); window.open('https://bryllim.com/', '_blank'); }} 
+              className="text-[#5865f2] hover:underline font-semibold cursor-pointer"
+            >
+              Bryl Lim
+            </span>.
           </p>
         </Link>
         
