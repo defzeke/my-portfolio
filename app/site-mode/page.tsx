@@ -1,9 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
-import { HiArrowLeft } from "react-icons/hi";
+
 import SiteHeader from "@/components/sections/site/SiteHeader";
 import AboutSection from "@/components/sections/site/AboutSection";
 import TechStackSection from "@/components/sections/site/TechStackSection";
@@ -46,6 +45,13 @@ export default function SiteMode() {
     return false;
   });
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [fadeIn, setFadeIn] = useState(false);
+
+  useEffect(() => {
+    // Trigger fade-in on mount
+    const raf = requestAnimationFrame(() => setFadeIn(true));
+    return () => cancelAnimationFrame(raf);
+  }, []);
   const [showHackathons, setShowHackathons] = useState(false);
   const [galleryImages, setGalleryImages] = useState<string[]>([]);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -130,17 +136,7 @@ export default function SiteMode() {
   }, []);
 
   return (
-    <div className={`min-h-screen ${isTransitioning ? 'transition-colors duration-300' : ''} ${isDarkMode ? 'bg-gray-900' : 'bg-gray-50'}`}>
-      {/* Back Button */}
-      <div className="px-4 sm:px-6 pt-4">
-        <Link 
-          href="/"
-          className={`inline-flex items-center gap-1.5 text-xs sm:text-sm font-medium transition-colors ${isDarkMode ? 'text-gray-400 hover:text-gray-200' : 'text-gray-600 hover:text-gray-900'}`}
-        >
-          <HiArrowLeft className="w-3 h-3 sm:w-4 sm:h-4" /> Back
-        </Link>
-      </div>
-
+    <div className={`min-h-screen transition-opacity duration-700 ${fadeIn ? 'opacity-100' : 'opacity-0'} ${isTransitioning ? 'transition-colors duration-300' : ''} ${isDarkMode ? 'bg-gray-900' : 'bg-gray-50'}`}>
       {/* Header */}
       <SiteHeader
         isDarkMode={isDarkMode}

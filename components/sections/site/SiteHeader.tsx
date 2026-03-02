@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { HiLocationMarker, HiMail, HiAcademicCap, HiCheckCircle, HiStar, HiSun, HiMoon } from "react-icons/hi";
+import { HiLocationMarker, HiMail, HiAcademicCap, HiCheckCircle, HiStar, HiSun, HiMoon, HiHome } from "react-icons/hi";
 
 interface SiteHeaderProps {
   isDarkMode: boolean;
@@ -83,13 +83,35 @@ export default function SiteHeader({ isDarkMode, toggleDarkMode, showHackathons,
           </div>
         </div>
 
-        {/* Dark Mode Toggle */}
-        <button
-          onClick={toggleDarkMode}
-          className={`self-center sm:self-start p-2.5 rounded-lg ${isDarkMode ? 'bg-gray-800 text-yellow-400' : 'bg-white text-gray-600'} border ${isDarkMode ? 'border-gray-700' : 'border-gray-200'} hover:scale-105 transition-all shadow-sm`}
-        >
-          {isDarkMode ? <HiSun className="w-4 h-4 sm:w-5 sm:h-5" /> : <HiMoon className="w-4 h-4 sm:w-5 sm:h-5" />}
-        </button>
+        {/* Controls: Home + Dark Mode Toggle */}
+        <div className="self-center sm:self-start flex items-center gap-2">
+          {/* Home button with tooltip */}
+          <div className="relative group">
+            <Link
+              href="/"
+              className={`inline-flex items-center justify-center p-2.5 rounded-lg border hover:scale-105 transition-all shadow-sm ${isDarkMode ? 'bg-gray-800 text-gray-300 border-gray-700 hover:text-white' : 'bg-white text-gray-600 border-gray-200 hover:text-gray-900'}`}
+            >
+              <HiHome className="w-4 h-4 sm:w-5 sm:h-5" />
+            </Link>
+            <div className={`pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 rounded text-xs font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 ${isDarkMode ? 'bg-gray-700 text-gray-200' : 'bg-gray-800 text-white'}`}>
+              Discord mode
+              <div className={`absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent ${isDarkMode ? 'border-t-gray-700' : 'border-t-gray-800'}`} />
+            </div>
+          </div>
+          {/* Dark mode toggle with tooltip */}
+          <div className="relative group">
+            <button
+              onClick={toggleDarkMode}
+              className={`p-2.5 rounded-lg ${isDarkMode ? 'bg-gray-800 text-yellow-400' : 'bg-white text-gray-600'} border ${isDarkMode ? 'border-gray-700' : 'border-gray-200'} hover:scale-105 transition-all shadow-sm`}
+            >
+              {isDarkMode ? <HiSun className="w-4 h-4 sm:w-5 sm:h-5" /> : <HiMoon className="w-4 h-4 sm:w-5 sm:h-5" />}
+            </button>
+            <div className={`pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 rounded text-xs font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 ${isDarkMode ? 'bg-gray-700 text-gray-200' : 'bg-gray-800 text-white'}`}>
+              {isDarkMode ? 'Light mode' : 'Dark mode'}
+              <div className={`absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent ${isDarkMode ? 'border-t-gray-700' : 'border-t-gray-800'}`} />
+            </div>
+          </div>
+        </div>
       </div>
     </header>
   );
