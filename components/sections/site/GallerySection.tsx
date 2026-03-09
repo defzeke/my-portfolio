@@ -21,7 +21,7 @@ export default function GallerySection({ isDarkMode, galleryImages, galleryRef, 
         <div className="relative">
           <button
             onClick={() => scrollGallery('left')}
-            className={`absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full ${isDarkMode ? 'bg-gray-900/90 hover:bg-gray-900 text-white' : 'bg-white/90 hover:bg-white text-gray-900'} shadow-lg transition-all`}
+            className={`hidden md:block absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full ${isDarkMode ? 'bg-gray-900/90 hover:bg-gray-900 text-white' : 'bg-white/90 hover:bg-white text-gray-900'} shadow-lg transition-all`}
             aria-label="Scroll left"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -51,7 +51,7 @@ export default function GallerySection({ isDarkMode, galleryImages, galleryRef, 
           </div>
           <button
             onClick={() => scrollGallery('right')}
-            className={`absolute right-0 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full ${isDarkMode ? 'bg-gray-900/90 hover:bg-gray-900 text-white' : 'bg-white/90 hover:bg-white text-gray-900'} shadow-lg transition-all`}
+            className={`hidden md:block absolute right-0 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full ${isDarkMode ? 'bg-gray-900/90 hover:bg-gray-900 text-white' : 'bg-white/90 hover:bg-white text-gray-900'} shadow-lg transition-all`}
             aria-label="Scroll right"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

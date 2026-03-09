@@ -108,9 +108,32 @@ export default function PortfolioLayout() {
         />
       )}
 
+      {/* Mobile top bar */}
+      <div className="fixed top-0 left-0 right-0 h-14 bg-[#2f3136] border-b border-gray-900/50 z-50 md:hidden flex items-center justify-between px-4 shadow-md">
+        <button
+          onClick={() => setShowMobileSidebars(!showMobileSidebars)}
+          className="p-2 rounded-lg hover:bg-[#36393f] text-gray-400 hover:text-white transition-colors"
+          aria-label="Toggle menu"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+        
+        <button
+          onClick={() => setShowMobileMembersSidebar(!showMobileMembersSidebar)}
+          className="p-2 rounded-lg hover:bg-[#36393f] text-gray-400 hover:text-white transition-colors"
+          aria-label="Toggle members"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+          </svg>
+        </button>
+      </div>
+
       {/* Server List - hidden on mobile by default, shown with swipe */}
       <div className={`
-        fixed left-0 top-0 h-screen md:relative md:h-full z-40 md:z-auto
+        fixed left-0 top-14 h-[calc(100vh-3.5rem)] md:relative md:top-0 md:h-full z-40 md:z-auto
         transition-transform duration-300 ease-in-out
         ${showMobileSidebars ? 'translate-x-0' : '-translate-x-[72px]'}
         md:translate-x-0
@@ -120,7 +143,7 @@ export default function PortfolioLayout() {
 
       {/* Channel Sidebar - hidden on mobile by default, shown with swipe */}
       <div className={`
-        fixed left-[72px] top-0 h-screen md:relative md:left-0 md:h-full z-40 md:z-auto
+        fixed left-[72px] top-14 h-[calc(100vh-3.5rem)] md:relative md:left-0 md:top-0 md:h-full z-40 md:z-auto
         transition-transform duration-300 ease-in-out
         ${showMobileSidebars ? 'translate-x-0' : '-translate-x-[332px]'}
         md:translate-x-0
@@ -132,7 +155,7 @@ export default function PortfolioLayout() {
       
       {/* Members Sidebar - hidden on mobile by default, shown with swipe left */}
       <div className={`
-        fixed right-0 top-0 h-screen md:relative md:h-full z-40 md:z-auto
+        fixed right-0 top-14 h-[calc(100vh-3.5rem)] md:relative md:top-0 md:h-full z-40 md:z-auto
         transition-transform duration-300 ease-in-out
         ${showMobileMembersSidebar ? 'translate-x-0' : 'translate-x-[240px]'}
         md:translate-x-0
