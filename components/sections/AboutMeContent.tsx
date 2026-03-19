@@ -149,7 +149,7 @@ export default function AboutMeContent() {
           </p>
         </Link>
         
-        <a href="/cv.pdf" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-br from-[#43b581]/20 to-[#3ca374]/10 rounded-lg p-4 sm:p-5 md:p-6 border-2 border-[#43b581]/30 hover:border-[#43b581] hover:shadow-lg hover:shadow-[#43b581]/30 transition-all group cursor-pointer">
+        <a href="/zekecv.pdf" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-br from-[#43b581]/20 to-[#3ca374]/10 rounded-lg p-4 sm:p-5 md:p-6 border-2 border-[#43b581]/30 hover:border-[#43b581] hover:shadow-lg hover:shadow-[#43b581]/30 transition-all group cursor-pointer">
           <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
             <div className="bg-[#43b581] p-2 sm:p-3 rounded-lg group-hover:scale-110 transition-transform">
               <FaGraduationCap className="text-xl sm:text-2xl text-white" />
